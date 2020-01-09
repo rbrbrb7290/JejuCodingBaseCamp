@@ -10,22 +10,22 @@ const WebBasicLectures =({navigation}) => {
         <View style={style.wrap}>
             <View style={style.categoryWrap}>
                  <TouchableOpacity style={style.categoryBtn}  
-                onPress={()=> setParam('HTML')}>
-                    <Text>HTML</Text>
+                onPress={()=> setParam('1')}>
+                    <Text>menu1</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={style.categoryBtn}  
-                onPress={()=> setParam('CSS')}>
-                    <Text>CSS</Text>
+                onPress={()=> setParam('2')}>
+                    <Text>menu2</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={style.categoryBtn}  
-                onPress={()=> setParam('JavaScript')}>
-                    <Text>JS</Text>
+                onPress={()=> setParam('3')}>
+                    <Text>menu3</Text>
                 </TouchableOpacity>
      
             </View>
             <Text>{param}</Text>
             <ScrollView>
-                <Text>*TODO FlatList in YouTube Data</Text>
+                <Text>*TODO FlatList in YouTube Data 222222</Text>
             </ScrollView>
         </View>
     );  

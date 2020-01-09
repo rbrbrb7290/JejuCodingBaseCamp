@@ -1,44 +1,56 @@
-import { Image, TouchableOpacity, Button } from 'react-native';
 import { createAppContainer, NavigationEvents } from 'react-navigation';
 import { createDrawerNavigator, NavigationDrawerRouterConfig } from 'react-navigation-drawer';
-import MainContainer from './MainContainer';
-import Home from './Home';
-import WebBasicLectures from './WebBasicComponent/WebBasicLectures'; 
-import ApplicationLectures from './ApplicationComponent/ApplicationLectures';
-import ServerLectures from './ServerComponent/ServerLectures'; 
+import Home from './MainContainer';
+import LectureStackNavigator from './StackNavigators/LectureStackNavigation';
+
  
 const LectureDarwerNavigator = createDrawerNavigator({
-  MainContainer: {
-    screen: MainContainer,
-    navigationOptions: { 
-      drawerLabel: " "
-    } 
-  }, 
   Home: {
     screen: Home, 
     navigationOptions: {
      drawerLabel: "홈"
     }
   },
-  WebBasicLectures: {
-    screen: WebBasicLectures,
-    navigationOptions: {
-      drawerLabel: "웹 기초",
+  HTML: { 
+    screen: LectureStackNavigator,
+    navigationOptions: { 
+      drawerLabel: "HTML",
     }
   },
-  ApplicationLectures: {
-    screen: ApplicationLectures,
+  CSS: {
+    screen: LectureStackNavigator,
+    drawerLabel: "CSS",
+  }, 
+
+  JavaScript: {
+    screen: LectureStackNavigator,
     navigationOptions: {
-      drawerLabel: "애플리케이션", 
+      drawerLabel: "JavaScript",
     }
-    
+  },
+  Python: {
+    screen: LectureStackNavigator,
+    navigationOptions: {
+      drawerLabel: "Python",
+    }
+  },
+
+  Django: {
+    screen: LectureStackNavigator,
+        drawerLabel: "Django",
     },
-    ServerLectures: {
-        screen: ServerLectures,
+    DataAnalysis: {
+        screen: LectureStackNavigator,
         navigationOptions: {
-          drawerLabel: "서버"
+          drawerLabel: "Data Analysis"
         } 
-    }
+    },
+    Etc: {
+      screen: LectureStackNavigator,
+      navigationOptions: {
+        drawerLabel: "협업툴 Etc."
+      } 
+  }
 
 }, )
 export default createAppContainer(LectureDarwerNavigator);
