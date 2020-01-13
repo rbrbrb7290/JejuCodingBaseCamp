@@ -9,13 +9,15 @@ async function getPlayList() {
             res = await _getPlayList();
         }finally{
             if(!res) return res;
-            return res['items'].map(row => ({
-                title: row['snippet']['title'],
-                desc: row['snippet']['description'],
-                img: row['snippet']['thumbnails']['default']['url'],
-                date: row['snippet']['publishedAt'],
-                videoId: row['contentDetails']['videoId']
-            }));
+            return {
+                videoInfo: res['items'].map(row => ({
+                    title: row['snippet']['title'],
+                    desc: row['snippet']['description'],
+                    img: row['snippet']['thumbnails']['default']['url'],
+                    date: row['snippet']['publishedAt'],
+                    videoId: row['contentDetails']['videoId']
+                }))
+            };
         }
 }
 

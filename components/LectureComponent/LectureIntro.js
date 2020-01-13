@@ -32,6 +32,16 @@ function LectureIntro() {
 
     useEffect(()=> {_getPlayList()}, []);
     console.log(playList)
+
+    const renderVideo = ({item: {title, desc, img , date, videoId }}) => (
+        <View>
+            <Text>{title}</Text>
+            <Text>{desc}</Text>
+            <Text>{img}</Text>
+            <Text>{date}</Text>
+            <Text>{videoId}</Text>
+        </View>
+    )
     
     return !playList ? (
         <View style={{alignItems: 'center', paddingTop:20, flex:1}}>
@@ -39,9 +49,10 @@ function LectureIntro() {
         </View> 
     ) : (
         <ScrollView>
-            <View>
-                <Text>리스트뿌려질예정</Text>
-            </View>   
+            <FlatList 
+                data={playList.videoInfo}
+                renderItem={renderVideo}
+            />  
         </ScrollView>
       
     );
