@@ -1,9 +1,13 @@
-import { createAppContainer, NavigationEvents } from 'react-navigation';
-import { createDrawerNavigator, NavigationDrawerRouterConfig } from 'react-navigation-drawer';
+import { createAppContainer,  } from 'react-navigation';
+import { createDrawerNavigator,} from 'react-navigation-drawer';
 import Home from './MainContainer';
-import LectureStackNavigator from './StackNavigators/LectureStackNavigation';
+import LectureStackNavigation from './StackNavigators/LectureStackNavigation';
+import LectureIntro from './LectureComponent/LectureIntro'
+import * as env from '../env';
+import React from 'react';
+import Icon from 'react-native-vector-icons/Entypo'
 
- 
+
 const LectureDarwerNavigator = createDrawerNavigator({
   Home: {
     screen: Home, 
@@ -12,45 +16,28 @@ const LectureDarwerNavigator = createDrawerNavigator({
     }
   },
   HTML: { 
-    screen: LectureStackNavigator,
-    navigationOptions: { 
-      drawerLabel: "HTML",
-    }
-  },
-  CSS: {
-    screen: LectureStackNavigator,
-    drawerLabel: "CSS",
+    screen: (props) => <LectureStackNavigation screenProps={{ plId:env.PL_HTML , title: 'HTML'}} /> ,
   }, 
-
+  CSS: {
+    screen: (props) => <LectureStackNavigation screenProps={{ plId:env.PL_CSS ,title: 'CSS' }} /> ,
+  }, 
   JavaScript: {
-    screen: LectureStackNavigator,
-    navigationOptions: {
-      drawerLabel: "JavaScript",
-    }
+    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_HTML , title: 'JS'}} /> ,
   },
   Python: {
-    screen: LectureStackNavigator,
-    navigationOptions: {
-      drawerLabel: "Python",
-    }
+    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_HTML ,title: 'Python'}} /> ,
   },
-
   Django: {
-    screen: LectureStackNavigator,
-        drawerLabel: "Django",
-    },
+    screen: (props) =>  <LectureStackNavigation screenProps={{plId:env.PL_DJANGO , title: 'Django'}} /> ,
+  },
     DataAnalysis: {
-        screen: LectureStackNavigator,
-        navigationOptions: {
-          drawerLabel: "Data Analysis"
-        } 
+      screen: (props) =>  <LectureStackNavigation screenProps={{plId:env.PL_DATA_ANALYSIS, title:'데이터 분석'}} /> ,
     },
     Etc: {
-      screen: LectureStackNavigator,
+      screen: (props) =>  <LectureStackNavigation screenProps={{plId:env.PL_ETC , title:'기타'}} /> ,
       navigationOptions: {
-        drawerLabel: "협업툴 Etc."
-      } 
-  }
-
+        drawerLabel: "협업툴 Etc.",
+      },
+  },
 }, )
 export default createAppContainer(LectureDarwerNavigator);

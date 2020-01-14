@@ -3,7 +3,7 @@ import {TouchableOpacity, Image} from 'react-native';
 import Home from './Home'; 
 import React from 'react'; 
 import Icon from 'react-native-vector-icons/Entypo'
- 
+
 const icon = <Icon name="menu" size={32} />
 
 const HomeStackNavigator = createStackNavigator({
