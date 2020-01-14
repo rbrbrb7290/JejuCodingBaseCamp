@@ -1,14 +1,13 @@
 import  _getPlayList  from '../lib/YouTubeAPI';
 
-async function getPlayList() {
+async function getPlayList(plId) {
         let res;
-        console.log('start')
         try {
-            res = await _getPlayList();
+            res = await _getPlayList(plId);
         } catch (error) {
-            res = await _getPlayList();
+            res = await _getPlayList(plId);
         }finally{
-            if(!res) return res;
+            if(!res) return {};
             return {
                 videoInfo: res['items'].map(row => ({
                     title: row['snippet']['title'],

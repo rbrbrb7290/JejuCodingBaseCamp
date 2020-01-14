@@ -1,45 +1,26 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text, ScrollView, FlatList, ActivityIndicator} from "react-native"
+import { 
+   View, Text, FlatList
+  ,ActivityIndicator, Image, StyleSheet, SafeAreaView, TouchableOpacity 
+} from "react-native";
+import Icon from 'react-native-vector-icons/Entypo'
 import { getPlayList } from '../../service/DataProcessor';
+import { getActiveChildNavigationOptions } from 'react-navigation';
 
-// async function _getPlayList() {
-//     const YOUTUBE_API_KEY = env.YOUTUBE_API_KEY;
-//     const playListId= env.PLAY_LIST_ID;
-
-//     const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=id,snippet&fields=items(id,snippet(title))&playlistId=${playListId}&key=${YOUTUBE_API_KEY}`
-//     const options = {
-//         method: 'GET',
-//         headers: { 
-//             'Accept': 'application/json',
-//             'Content-Type' : 'application/json;charset=UTF-8'
-//         },
-//     }   
-//     let res = await fetch(url , options);
-//     let resOk = res && res.ok;
-
-//     if(resOk) {
-//         let data = await res.json();
-//         return data;
-//     }
-// }
-
-function LectureIntro() {
+const icon = <Icon name="menu" size={32} />
+const LectureIntro = ({navigation, screenProps, title}) => {
     const [playList, setPlayList] = useState(null);
-    
     const _getPlayList = async () => {
-        setPlayList(await getPlayList());
+        setPlayList(await getPlayList(screenProps.plId));
     }
-
+    console.log(screenProps.plId)
+    console.log(screenProps.title)
     useEffect(()=> {_getPlayList()}, []);
-    console.log(playList)
-
-    const renderVideo = ({item: {title, desc, img , date, videoId }}) => (
-        <View>
-            <Text>{title}</Text>
-            <Text>{desc}</Text>
-            <Text>{img}</Text>
+    const renderVideo = ({item: {title, img , date, videoId}}) => (
+        <View style={videoStyle.itemBox}>
+            <Text style={videoStyle.title}>{title}</Text>
+            <Image source={{uri:`${img}`}} style={{width:160, height:100}} />
             <Text>{date}</Text>
-            <Text>{videoId}</Text>
         </View>
     )
     
@@ -48,15 +29,44 @@ function LectureIntro() {
             <ActivityIndicator size='large' />
         </View> 
     ) : (
-        <ScrollView>
-            <FlatList 
+        <SafeAreaView style={{flex:1}}>
+            <FlatList
                 data={playList.videoInfo}
                 renderItem={renderVideo}
+                keyExtractor={item => item.videoId}
+                onPress = {()=> console.log(videoId)}
             />  
-        </ScrollView>
-      
+        </SafeAreaView>
     );
-} 
+}
+
+const videoStyle = StyleSheet.create({
+    container: {
+        flex:1,
+        backgroundColor: '#FFFFFF',
+        paddingHorizontal: 6,
+        paddingVertical: 3,
+        borderWidth:1,
+    },
+    itemBox: {
+        backgroundColor: '#FFFFFF',
+        paddingVertical: 5,
+        paddingHorizontal: 10,
+        borderRadius: 7,
+        borderWidth: 0.3,
+        borderColor: '#BCBCBC',
+        marginTop: 10,
+        marginLeft:5
+    },
+    title:{
+
+    }
+
+
+
+})
 
 export default LectureIntro;
+
+
 
