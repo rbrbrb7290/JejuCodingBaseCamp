@@ -1,7 +1,7 @@
-import { createStackNavigator } from 'react-navigation-stack';
-import {TouchableOpacity, Image} from 'react-native';
-import Home from './Home'; 
 import React from 'react'; 
+import {TouchableOpacity, Image} from 'react-native';
+import { createStackNavigator } from 'react-navigation-stack';
+import Home from './Home'; 
 import Icon from 'react-native-vector-icons/Entypo'
 
 const icon = <Icon name="menu" size={32} />

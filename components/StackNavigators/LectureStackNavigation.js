@@ -2,12 +2,10 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { createAppContainer} from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { DrawerActions } from 'react-navigation-drawer';
 import Icon from 'react-native-vector-icons/Entypo'
 import LectureIntro from '../LectureComponent/LectureIntro';
 import LectureVideo from '../LectureComponent/LectureVideo';
-import Home from './../LectureDrawerNavigator';
-import LectureDrawerNavigator from './../LectureDrawerNavigator';
+import LectureDrawerNavigator from '../LectureDrawerNavigator';
 
 const icon = <Icon name="home" size={25} style={{paddingLeft: 11}} />
 
@@ -23,22 +21,22 @@ const LectureStackNavigation = createStackNavigator({
     LectureVideo: {
         screen: LectureVideo,
         navigationOptions: {
-            headerShown: false
+            title: "PaulLab"
         }
     },
-    Home: {
-        screen: LectureDrawerNavigator,
-        navigationOptions: {
-            headerShown: false
-        }
-    }
+    // LectureDrawerNavigator: {
+    //     screen: LectureDrawerNavigator,
+    //     navigationOptions: {
+    //         headerShown: false
+    //     }
+    // }
 
 
 }, {
     initialRouteName: 'LectureIntro',
     defaultNavigationOptions: ({navigation}) => ({
     headerLeft:() => (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity onPress={() => navigation.navigate('LectureDrawerNavigator')}>
             {icon}
         </TouchableOpacity>
     ), 

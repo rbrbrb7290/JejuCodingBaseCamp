@@ -1,33 +1,31 @@
 import React, {useState, useEffect} from 'react';
 import { 
    View, Text, FlatList
-  ,ActivityIndicator, Image, StyleSheet, SafeAreaView, TouchableOpacity 
+  ,ActivityIndicator, Image, StyleSheet, SafeAreaView, TouchableOpacity
 } from "react-native";
-import Icon from 'react-native-vector-icons/Entypo'
 import { getPlayList } from '../../service/DataProcessor';
-import { getActiveChildNavigationOptions } from 'react-navigation';
 
-const icon = <Icon name="menu" size={32} />
 const LectureIntro = ({navigation, screenProps, title}) => {
     const [playList, setPlayList] = useState(null);
     const _getPlayList = async () => {
         setPlayList(await getPlayList(screenProps.plId));
     }
-    console.log(screenProps.plId)
-    console.log(screenProps.title)
+
     useEffect(()=> {_getPlayList()}, []);
     const renderVideo = ({item: {title, img , desc, date, videoId}}) => (
         // TODO YOUTUBE LIB ({videoId}) => {}
-        <TouchableOpacity onPress={()=>console.log(videoId)}>
+        <TouchableOpacity 
+            onPress={()=> navigation.navigate('LectureVideo', {
+                videoId: videoId,
+                title: title,
+                desc: desc      })}>
         <View style={videoStyle.itemBox}>
-             <View style={{flex:0.5}}> 
-                 <Text style={videoStyle.title}>{title}</Text>  
-                    <Image source={{uri:`${img}`}} style={{width:150, height:100}} />
-                <Text>{date}</Text>
+        <Text style={videoStyle.title}>{title}</Text>  
+             <View style={{flex:1, display: 'flex', flexWrap: 'wrap',alignItems: 'flex-start'}}> 
+                 <View><Image source={{uri:`${img}`}} style={{width:150, height:100}} /></View>
+                 <Text numberOfLines={1}>{desc}</Text>
             </View>
-            <View  style={{flex:0.5}}>
-                <Text numberOfLines={1}>{desc}</Text>
-            </View>
+            <Text>{date}</Text>
         </View>
         </TouchableOpacity>
     )
@@ -57,9 +55,7 @@ const videoStyle = StyleSheet.create({
     },
     itemBox: {
         flex: 1,
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems: 'flex-start',
+       
         backgroundColor: '#FFFFFF',
         paddingVertical: 5,
         paddingHorizontal: 10,
