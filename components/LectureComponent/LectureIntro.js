@@ -4,28 +4,27 @@ import {
   ,ActivityIndicator, Image, StyleSheet, SafeAreaView, TouchableOpacity
 } from "react-native";
 import { getPlayList } from '../../service/DataProcessor';
+import { normalize } from 'react-native-elements';
 
 const LectureIntro = ({navigation, screenProps, title}) => {
     const [playList, setPlayList] = useState(null);
     const _getPlayList = async () => {
         setPlayList(await getPlayList(screenProps.plId));
     }
-
+    
     useEffect(()=> {_getPlayList()}, []);
+
     const renderVideo = ({item: {title, img , desc, date, videoId}}) => (
-        // TODO YOUTUBE LIB ({videoId}) => {}
         <TouchableOpacity 
             onPress={()=> navigation.navigate('LectureVideo', {
                 videoId: videoId,
                 title: title,
-                desc: desc      })}>
-        <View style={videoStyle.itemBox}>
-        <Text style={videoStyle.title}>{title}</Text>  
-             <View style={{flex:1, display: 'flex', flexWrap: 'wrap',alignItems: 'flex-start'}}> 
-                 <View><Image source={{uri:`${img}`}} style={{width:150, height:100}} /></View>
-                 <Text numberOfLines={1}>{desc}</Text>
-            </View>
-            <Text>{date}</Text>
+                desc: desc,     })}>
+        <View style={style.itemBox}>
+                <Text style={style.title}>{title}</Text>  
+                <View><Image source={{uri:`${img}`}} style={{width:150, height:100 }} /></View>
+                <Text numberOfLines={1} style={style.date}>{date}</Text>
+               
         </View>
         </TouchableOpacity>
     )
@@ -35,42 +34,51 @@ const LectureIntro = ({navigation, screenProps, title}) => {
             <ActivityIndicator size='large' />
         </View> 
     ) : (
-        <SafeAreaView style={{flex:1}}>
+        <SafeAreaView style={style.container}>
             <FlatList
-                data={playList.videoInfo}
-                renderItem={renderVideo}
-                keyExtractor={item => item.videoId}
+              data={playList.videoInfo}
+              renderItem={renderVideo}
+              keyExtractor={item => item.videoId}
             />  
         </SafeAreaView>
     );
 }
 
-const videoStyle = StyleSheet.create({
+const style = StyleSheet.create({
     container: {
         flex:1,
+        flexWrap: 'wrap',
+        flexDirection: 'row' ,
+        alignItems: 'flex-start',
+        justifyContent: 'center' ,
         backgroundColor: '#FFFFFF',
         paddingHorizontal: 6,
-        paddingVertical: 3,
-        borderWidth:1,
+        paddingVertical: 3
     },
     itemBox: {
-        flex: 1,
-       
         backgroundColor: '#FFFFFF',
         paddingVertical: 5,
         paddingHorizontal: 10,
         borderRadius: 7,
-        borderWidth: 0.3,
-        borderColor: '#BCBCBC',
+        borderWidth: 1,
+        borderColor: '#e8e8e8',
         marginTop: 10,
-        marginLeft:5
+        marginLeft:5,
     },
     title:{
+       fontSize: normalize(14),
+       fontWeight: 'bold',
+       marginBottom: 5,
 
+    },
+    date: {
+        color: '#8a8a8a',
+        fontSize: normalize(10)
+      },
+    desc: {
+       fontSize: normalize(10),
+       color:'#8a8a8a'
     }
-
-
-
 })
 
 export default LectureIntro;

@@ -13,11 +13,8 @@ const LectureVideo = ({navigation}) => {
   const webComponent=()=> {
     <View style={{flex:1}}>
       <WebView 
-        ref='webview'
         source={{uri:'http://paullab.co.kr/index.html'}}
         style={{...style.webview ,marginTop: 20,  }}
-        onLoad={()=>console.log('hh')}
-        onError={()=>console.log('gg')}
       />
     </View>
   }
