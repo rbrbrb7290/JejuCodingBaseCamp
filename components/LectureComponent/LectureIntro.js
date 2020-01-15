@@ -13,16 +13,9 @@ const LectureIntro = ({navigation, screenProps, title}) => {
     const _getPlayList = async () => {
         setPlayList(await getPlayList(screenProps.plId));
     }
-<<<<<<< HEAD
-    // console.log(screenProps.plId)
-    // console.log(screenProps.title)
-    useEffect(()=> {_getPlayList()}, []);
-    
-=======
     
     useEffect(()=> {_getPlayList()}, []);
 
->>>>>>> 6d4072b8b41b271ea61b4518895f6b768a5a9066
     const renderVideo = ({item: {title, img , desc, date, videoId}}) => (
         <TouchableOpacity 
             onPress={()=> navigation.navigate('LectureVideo', {

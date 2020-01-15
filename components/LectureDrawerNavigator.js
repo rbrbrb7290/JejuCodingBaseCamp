@@ -4,13 +4,9 @@ import { createDrawerNavigator,} from 'react-navigation-drawer';
 import Home from './Home';
 import LectureStackNavigation from './StackNavigators/LectureStackNavigation';
 import * as env from '../env';
-<<<<<<< HEAD
-import React from 'react';
 import Icon from 'react-native-vector-icons/Entypo'
 import BookList from './BookComponent/BookList';
 
-=======
->>>>>>> 6d4072b8b41b271ea61b4518895f6b768a5a9066
 
 const LectureDarwerNavigator = createDrawerNavigator({
   Home: {
@@ -42,7 +38,6 @@ const LectureDarwerNavigator = createDrawerNavigator({
     navigationOptions: {
       drawerLabel: "협업툴 Etc.",
     },
-<<<<<<< HEAD
   },
   
   Book:{
@@ -50,8 +45,6 @@ const LectureDarwerNavigator = createDrawerNavigator({
     navigationOptions:{
       drawerLabel:"책 목록"
     }
-=======
->>>>>>> 6d4072b8b41b271ea61b4518895f6b768a5a9066
   },
 }, )
 export default LectureDarwerNavigator;
