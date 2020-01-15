@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text, ScrollView, FlatList, Button , StyleSheet,TouchableOpacity } from 'react-native';
-import { } from 'react-native-gesture-handler';
+
 /** 
  * HTML / CSS / JS강의 로드 컴포넌트  */
 const WebBasicLectures =({navigation}) => {
