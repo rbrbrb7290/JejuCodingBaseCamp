@@ -6,7 +6,7 @@ const App = () => {
   return (
     <Fragment>
       <LectureDrawerNavigator />
-      <Admob/>
+      {/* <Admob/> */}
     </Fragment>
   );
 }

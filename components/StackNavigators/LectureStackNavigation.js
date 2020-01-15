@@ -8,6 +8,7 @@ import LectureIntro from '../LectureComponent/LectureIntro';
 import LectureVideo from '../LectureComponent/LectureVideo';
 import Home from './../LectureDrawerNavigator';
 import LectureDrawerNavigator from './../LectureDrawerNavigator';
+import BookList from '../BookComponent/BookList';
 
 const icon = <Icon name="home" size={25} style={{paddingLeft: 11}} />
 
@@ -26,12 +27,13 @@ const LectureStackNavigation = createStackNavigator({
             headerShown: false
         }
     },
-    Home: {
-        screen: LectureDrawerNavigator,
-        navigationOptions: {
+    BookList:{
+        screen: BookList,
+        navigationOptions:{
             headerShown: false
         }
-    }
+    },
+
 
 
 }, {

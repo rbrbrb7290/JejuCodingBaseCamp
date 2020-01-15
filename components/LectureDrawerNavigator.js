@@ -6,6 +6,7 @@ import LectureIntro from './LectureComponent/LectureIntro'
 import * as env from '../env';
 import React from 'react';
 import Icon from 'react-native-vector-icons/Entypo'
+import BookList from './BookComponent/BookList';
 
 
 const LectureDarwerNavigator = createDrawerNavigator({
@@ -30,14 +31,21 @@ const LectureDarwerNavigator = createDrawerNavigator({
   Django: {
     screen: (props) =>  <LectureStackNavigation screenProps={{plId:env.PL_DJANGO , title: 'Django'}} /> ,
   },
-    DataAnalysis: {
-      screen: (props) =>  <LectureStackNavigation screenProps={{plId:env.PL_DATA_ANALYSIS, title:'데이터 분석'}} /> ,
+  DataAnalysis: {
+    screen: (props) =>  <LectureStackNavigation screenProps={{plId:env.PL_DATA_ANALYSIS, title:'데이터 분석'}} /> ,
+  },
+  Etc: {
+    screen: (props) =>  <LectureStackNavigation screenProps={{plId:env.PL_ETC , title:'기타'}} /> ,
+    navigationOptions: {
+      drawerLabel: "협업툴 Etc.",
     },
-    Etc: {
-      screen: (props) =>  <LectureStackNavigation screenProps={{plId:env.PL_ETC , title:'기타'}} /> ,
-      navigationOptions: {
-        drawerLabel: "협업툴 Etc.",
-      },
+  },
+  
+  Book:{
+    screen: BookList,
+    navigationOptions:{
+      drawerLabel:"책 목록"
+    }
   },
 }, )
 export default createAppContainer(LectureDarwerNavigator);

@@ -10,12 +10,15 @@ import { getActiveChildNavigationOptions } from 'react-navigation';
 const icon = <Icon name="menu" size={32} />
 const LectureIntro = ({navigation, screenProps, title}) => {
     const [playList, setPlayList] = useState(null);
+    // console.log(playList);
+    
     const _getPlayList = async () => {
         setPlayList(await getPlayList(screenProps.plId));
     }
-    console.log(screenProps.plId)
-    console.log(screenProps.title)
+    // console.log(screenProps.plId)
+    // console.log(screenProps.title)
     useEffect(()=> {_getPlayList()}, []);
+    
     const renderVideo = ({item: {title, img , desc, date, videoId}}) => (
         // TODO YOUTUBE LIB ({videoId}) => {}
         <TouchableOpacity onPress={()=>console.log(videoId)}>
