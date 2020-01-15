@@ -1,19 +1,22 @@
+import React from 'react';
 import { createAppContainer,  } from 'react-navigation';
 import { createDrawerNavigator,} from 'react-navigation-drawer';
-import Home from './MainContainer';
+import Home from './Home';
 import LectureStackNavigation from './StackNavigators/LectureStackNavigation';
-import LectureIntro from './LectureComponent/LectureIntro'
 import * as env from '../env';
+<<<<<<< HEAD
 import React from 'react';
 import Icon from 'react-native-vector-icons/Entypo'
 import BookList from './BookComponent/BookList';
 
+=======
+>>>>>>> 6d4072b8b41b271ea61b4518895f6b768a5a9066
 
 const LectureDarwerNavigator = createDrawerNavigator({
   Home: {
     screen: Home, 
     navigationOptions: {
-     drawerLabel: "홈"
+     drawerLabel: "Home"
     }
   },
   HTML: { 
@@ -23,10 +26,10 @@ const LectureDarwerNavigator = createDrawerNavigator({
     screen: (props) => <LectureStackNavigation screenProps={{ plId:env.PL_CSS ,title: 'CSS' }} /> ,
   }, 
   JavaScript: {
-    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_HTML , title: 'JS'}} /> ,
+    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_JS , title: 'JS'}} /> ,
   },
   Python: {
-    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_HTML ,title: 'Python'}} /> ,
+    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_PYTHON ,title: 'Python'}} /> ,
   },
   Django: {
     screen: (props) =>  <LectureStackNavigation screenProps={{plId:env.PL_DJANGO , title: 'Django'}} /> ,
@@ -39,6 +42,7 @@ const LectureDarwerNavigator = createDrawerNavigator({
     navigationOptions: {
       drawerLabel: "협업툴 Etc.",
     },
+<<<<<<< HEAD
   },
   
   Book:{
@@ -46,6 +50,8 @@ const LectureDarwerNavigator = createDrawerNavigator({
     navigationOptions:{
       drawerLabel:"책 목록"
     }
+=======
+>>>>>>> 6d4072b8b41b271ea61b4518895f6b768a5a9066
   },
 }, )
-export default createAppContainer(LectureDarwerNavigator);
+export default LectureDarwerNavigator;
