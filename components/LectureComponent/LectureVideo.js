@@ -10,14 +10,12 @@ const deviceWidth = Dimensions.get('window').width;
 
 const LectureVideo = ({navigation}) => {
 
-  const webComponent=()=> {
-    <View style={{flex:1}}>
+  const webComponent=()=> (
       <WebView 
         source={{uri:'http://paullab.co.kr/index.html'}}
         style={{...style.webview ,marginTop: 20,  }}
       />
-    </View>
-  }
+  )
     return(
       <ScrollView style={style.container}>
         <YouTube 
