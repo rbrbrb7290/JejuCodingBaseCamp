@@ -4,7 +4,7 @@ import { WebView } from 'react-native-webview';
 import YouTube from 'react-native-youtube';
 import { normalize } from 'react-native-elements'
 import * as env from '../../env';
-
+ 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
