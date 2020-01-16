@@ -5,6 +5,11 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Icon from 'react-native-vector-icons/Entypo'
 import LectureIntro from '../LectureComponent/LectureIntro';
 import LectureVideo from '../LectureComponent/LectureVideo';
+import Home from './../LectureDrawerNavigator';
+import LectureDrawerNavigator from './../LectureDrawerNavigator';
+import BookList from '../BookComponent/BookList';
+
+const icon = <Icon name="home" size={25} style={{paddingLeft: 11}} />
 
 const LectureStackNavigation = createStackNavigator({
     // 강좌 개요
@@ -18,9 +23,17 @@ const LectureStackNavigation = createStackNavigator({
     LectureVideo: {
         screen: LectureVideo,
         navigationOptions: {
+            headerShown: false
+        }
+    },
+    BookList:{
+        screen: BookList,
+        navigationOptions:{
+            headerShown: false,
             title: "PaulLab"
         }
-    }
+    },
+
 
 }, {
     initialRouteName: 'LectureIntro',

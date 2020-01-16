@@ -8,6 +8,8 @@ import { normalize } from 'react-native-elements';
 
 const LectureIntro = ({navigation, screenProps, title}) => {
     const [playList, setPlayList] = useState(null);
+    // console.log(playList);
+    
     const _getPlayList = async () => {
         setPlayList(await getPlayList(screenProps.plId));
     }

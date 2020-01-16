@@ -4,6 +4,9 @@ import { createDrawerNavigator,} from 'react-navigation-drawer';
 import Home from './Home';
 import LectureStackNavigation from './StackNavigators/LectureStackNavigation';
 import * as env from '../env';
+import Icon from 'react-native-vector-icons/Entypo'
+import BookList from './BookComponent/BookList';
+
 
 const LectureDarwerNavigator = createDrawerNavigator({
   Home: {
@@ -35,6 +38,13 @@ const LectureDarwerNavigator = createDrawerNavigator({
     navigationOptions: {
       drawerLabel: "협업툴 Etc.",
     },
+  },
+  
+  Book:{
+    screen: BookList,
+    navigationOptions:{
+      drawerLabel:"책 목록"
+    }
   },
 }, )
 export default LectureDarwerNavigator;
