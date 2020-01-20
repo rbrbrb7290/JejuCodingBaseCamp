@@ -25,17 +25,9 @@ const LectureStackNavigation = createStackNavigator({
         navigationOptions: {
             headerShown: false
         }
-    },
-    BookList:{
-        screen: BookList,
-        navigationOptions:{
-            headerShown: false,
-            title: "PaulLab"
-        }
-    },
-
-
-}, {
+    }
+}, 
+{
     initialRouteName: 'LectureIntro',
     headerMode: "none"
     // defaultNavigationOptions: ({navigation}) => ({
