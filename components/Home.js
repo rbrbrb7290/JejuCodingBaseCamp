@@ -54,14 +54,6 @@ const Home = ({navigation}) => {
       </ScrollView>
     ); 
 } 
-// Home.navigationOptions= ({navigation}) => ({
-//   title: "홈",  
-//   headerLeft: () => (
-//     <TouchableOpacity onPress={() => navigation.openDrawer()}>
-//       {icon}
-//     </TouchableOpacity> 
-//   ), 
-// })    
 
 const style = StyleSheet.create({
   container: {
@@ -78,7 +70,7 @@ itemBox: {
     paddingHorizontal: 20,
     borderRadius: 4,
     borderWidth: 1,
-    borderColor: '#e8e8e8',
+    borderColor: '#e8e8e8', 
     marginTop: 10,
     marginLeft:5,
     resizeMode: 'contain'
