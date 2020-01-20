@@ -29,7 +29,6 @@ const HomeStackNavigator = createStackNavigator({
           
           })    
     },
-  
 })
 
 export default createAppContainer(HomeStackNavigator);

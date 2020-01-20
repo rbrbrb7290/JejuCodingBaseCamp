@@ -1,17 +1,15 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
 import { View, Text, FlatList, Modal, StyleSheet,TouchableOpacity, Button, Dimensions} from 'react-native'
-import ImageViewr from 'react-native-image-zoom-viewer'
-import data from './tool/data';
-import { createNavigator, createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import data from '../tool/data';
+import { normalize } from 'react-native-elements';
 
 const SheetMain = ({navigation})=>{
     
     const _renderItem = ({item:{imglink, name}}) =>(
         <TouchableOpacity
         onPress={()=> navigation.navigate('Sheet',{name:name, imglink:imglink})}>
-            <View style={style.container}>
+            <View style={style.content}>
                 <Text style={style.sheetName}>
                     {name}
                 </Text>
@@ -23,10 +21,11 @@ const SheetMain = ({navigation})=>{
     const DATA = Object.values(SheetList)
     useEffect(()=> {setSheet()},[])
     return (
-        <View>
+        <View style={style.container}>
             <FlatList
                 data = {DATA}
                 renderItem = {({item})=><_renderItem item={item}/>}
+                numColumns={3}
             />
         </View>
     )
@@ -35,25 +34,29 @@ export default SheetMain
 
 
 const style = StyleSheet.create({
-    
     container:{
+        flex:1,
+        
+        alignItems: 'center',
+        justifyContent:'center'
+    },
+    content:{
         flex: 1,
         flexDirection:'column',
         alignItems: 'center',
-        justifyContent:'center',
+        justifyContent:'space-around',
         backgroundColor: '#FFFFFF',
         paddingVertical: 5,
         paddingHorizontal: 10,
         borderRadius: 7,
         borderWidth: 0.3,
         borderColor: '#BCBCBC',
-        marginTop: 10,
-        marginHorizontal:10,
-        height:100
+        minWidth:'33%',
+        height:120
     },
     sheetName:{
         textAlign:'center',
         fontWeight:'bold',
-        fontSize:40
+        fontSize: normalize(13)
     }
 })
