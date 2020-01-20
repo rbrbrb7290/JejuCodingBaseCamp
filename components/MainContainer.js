@@ -15,11 +15,14 @@ const HomeStackNavigator = createStackNavigator({
             headerTitle: ()=> (
               <View>
                 <Image source={require('./../images/logo.png')}
-                       style={{width:40 , height:40, marginLeft: -32}} /> 
+                       style={{width:40 , height:40, marginLeft: -20}} /> 
               </View>
             ),
-            headerLeft: () => ( 
-              <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            headerLeft: () => (   
+              <TouchableOpacity 
+                  onPress={() => navigation.toggleDrawer()}
+                  style={{marginLeft:10}}
+                  >
                 {icon}
               </TouchableOpacity> 
             ),
