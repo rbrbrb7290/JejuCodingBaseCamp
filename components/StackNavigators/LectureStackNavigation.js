@@ -13,12 +13,6 @@ const LectureStackNavigation = createStackNavigator({
     //강좌 영상
     LectureVideo: {
         screen: LectureVideo,
-    },
-    BookList:{
-        screen: BookList,
-    },
-
-
 }, {
     initialRouteName: 'LectureList',
     headerMode: "none"
