@@ -2,8 +2,6 @@ import React, { Fragment, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView} from "react-native";
 import { normalize } from 'react-native-elements';
 import YouTube from 'react-native-youtube';
-import * as env from './../env';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 function BaseCampIntro() {
   return (
@@ -13,11 +11,15 @@ function BaseCampIntro() {
         source={{uri:'http://paullab.co.kr/line.png'}}
         style={{width:'100%' ,height:200}}
       />
-      <YouTube  
+      <Image 
+        source={require('./../images/camp_Intro.png')}
+        style={{width:'100%' ,height:500}}
+      />
+      {/* <YouTube  
         apiKey={env.YOUTUBE_API_KEY}
         videoId={'Ha5W6vqTEDI'}
         style={{ alignSelf: 'stretch', height: 270, marginTop: 15}}
-      />
+      /> */}
     </View> 
   )
 }
@@ -25,7 +27,7 @@ function BaseCampIntro() {
 function PaulLabIntro() {
   return (
   <View style={style.itemBox}>
-      <Text style={style.title}>바울랩!</Text>  
+      <Text style={style.title}>바울랩</Text>  
       <Image 
         source={{uri:'http://paullab.co.kr/logo.png'}}
         style={{width:'100%' ,height:200}}
@@ -37,10 +39,6 @@ function PaulLabIntro() {
 function OtherInfo() {
   return (
     <View style={{...style.itemBox, alignItems:'center'}}>
-    <Image
-      source={{uri:'https://i.ytimg.com/vi/Cm_qva8i8Q4/maxresdefault.jpg'}}
-      style={{width:200 , height: 100}}
-    />
     </View>
   )
 }
@@ -67,7 +65,7 @@ itemBox: {
     backgroundColor: '#FFFFFF',
     paddingTop: 15,
     paddingBottom: 30,
-    paddingHorizontal: 20,
+    paddingHorizontal: 8,
     borderRadius: 4,
     borderWidth: 1,
     borderColor: '#e8e8e8', 
