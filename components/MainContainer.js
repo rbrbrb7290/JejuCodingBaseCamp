@@ -21,24 +21,6 @@ const HomeStackNavigator = createStackNavigator({
             ), 
           })    
     },
-<<<<<<< HEAD
-  //   LectureIntro:{
-  //     screen: LectureIntro,
-  //     navigationOptions:({navigation, screenProps}) => ({
-  //         title: `${screenProps.title} 강좌`,
-  //     }) 
-  // },
-  // //강좌 영상
-  // LectureVideo: {
-  //     screen: LectureVideo,
-  //     navigationOptions: {
-  //         title: "PaulLab"
-  //     }
-  // }
-
-=======
-  
->>>>>>> b488cf14f0a0ed6fc4ad128b6ca9e3800d153272
 })
 
 export default createAppContainer(HomeStackNavigator);
