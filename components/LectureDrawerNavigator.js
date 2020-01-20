@@ -6,7 +6,7 @@ import LectureStackNavigation from './StackNavigators/LectureStackNavigation';
 import * as env from '../env';
 import Icon from 'react-native-vector-icons/Entypo'
 import BookList from './BookComponent/BookList';
-import CheatSheet from './CheatSheet';
+import CheatSheet from './CheatSheet/CheatSheet';
 
 
 const LectureDarwerNavigator = createDrawerNavigator({

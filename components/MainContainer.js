@@ -21,19 +21,19 @@ const HomeStackNavigator = createStackNavigator({
             ), 
           })    
     },
-    LectureIntro:{
-      screen: LectureIntro,
-      navigationOptions:({navigation, screenProps}) => ({
-          title: `${screenProps.title} 강좌`,
-      }) 
-  },
-  //강좌 영상
-  LectureVideo: {
-      screen: LectureVideo,
-      navigationOptions: {
-          title: "PaulLab"
-      }
-  }
+  //   LectureIntro:{
+  //     screen: LectureIntro,
+  //     navigationOptions:({navigation, screenProps}) => ({
+  //         title: `${screenProps.title} 강좌`,
+  //     }) 
+  // },
+  // //강좌 영상
+  // LectureVideo: {
+  //     screen: LectureVideo,
+  //     navigationOptions: {
+  //         title: "PaulLab"
+  //     }
+  // }
 
 })
 
