@@ -5,7 +5,7 @@ import LectureStackNavigation from './StackNavigators/LectureStackNavigation';
 import * as env from '../env';
 import Icon from 'react-native-vector-icons/Entypo'
 import BookList from './BookComponent/BookList';
-
+import MainContainer from './MainContainer';
 
 const LectureDarwerNavigator = createDrawerNavigator({
   Home: {
@@ -15,10 +15,10 @@ const LectureDarwerNavigator = createDrawerNavigator({
     }
   },
   HTML: { 
-    screen: (props) => <LectureStackNavigation screenProps={{ plId:env.PL_HTML , title: 'HTML'}} /> ,
+    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_HTML , title: 'HTML' }} /> ,
   }, 
   CSS: {
-    screen: (props) => <LectureStackNavigation screenProps={{ plId:env.PL_CSS ,title: 'CSS' }} /> ,
+    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_CSS ,title: 'CSS' }} /> ,
   }, 
   JavaScript: {
     screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_JS , title: 'JS'}} /> ,
@@ -38,7 +38,7 @@ const LectureDarwerNavigator = createDrawerNavigator({
       drawerLabel: "협업툴 Etc.",
     },
   },
-  
+
   Book:{
     screen: BookList,
     navigationOptions:{
