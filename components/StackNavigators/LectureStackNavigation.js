@@ -14,12 +14,6 @@ const LectureStackNavigation = createStackNavigator({
     LectureVideo: {
         screen: LectureVideo,
     },
-
-    Home: {
-        screen: Home,
-    }
-   
-
 }, {
     initialRouteName: 'LectureList',
     headerMode: 'none'
