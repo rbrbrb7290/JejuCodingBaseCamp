@@ -7,7 +7,6 @@ import Icon from 'react-native-vector-icons/Entypo'
 import BookList from './BookComponent/BookList';
 import CheatSheet from './CheatSheet/CheatSheet';
 
-
 const LectureDarwerNavigator = createDrawerNavigator({
   Home: {
     screen: Home, 
@@ -16,10 +15,10 @@ const LectureDarwerNavigator = createDrawerNavigator({
     }
   },
   HTML: { 
-    screen: (props) => <LectureStackNavigation screenProps={{ plId:env.PL_HTML , title: 'HTML'}} /> ,
+    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_HTML , title: 'HTML' }} /> ,
   }, 
   CSS: {
-    screen: (props) => <LectureStackNavigation screenProps={{ plId:env.PL_CSS ,title: 'CSS' }} /> ,
+    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_CSS ,title: 'CSS' }} /> ,
   }, 
   JavaScript: {
     screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_JS , title: 'JS'}} /> ,

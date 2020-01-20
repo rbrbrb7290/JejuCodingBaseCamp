@@ -30,7 +30,7 @@ const LectureList = ({navigation, screenProps }) => {
             </View>
         )
     }
-
+    
     const renderVideo = ({item: {title, img , desc, date, videoId}}) => (
         <TouchableOpacity 
             onPress={()=> navigation.navigate('LectureVideo', {
@@ -85,8 +85,8 @@ const style = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         paddingVertical: 3,
         paddingHorizontal: 6,
-        borderRadius: 4,
         borderWidth: 1,
+        borderStyle: 'dashed',
         borderColor: '#e8e8e8',
         marginTop: 10,
         marginLeft:5,
