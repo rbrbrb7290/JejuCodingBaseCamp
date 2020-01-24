@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, ScrollView, Text, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
-import { WebView } from 'react-native-webview';
 import YouTube from 'react-native-youtube';
 import { normalize } from 'react-native-elements'
 import * as env from '../../env';
@@ -9,13 +8,6 @@ const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
 const LectureVideo = ({navigation}) => {
-
-  // const webComponent=()=> (
-  //     <WebView 
-  //       source={{uri:'http://paullab.co.kr/index.html'}}
-  //       style={{...style.webview ,marginTop: 20,  }}
-  //     />
-  // )
     return(
       <ScrollView style={style.container}>
         <YouTube 
