@@ -8,7 +8,7 @@ const App = () => {
   
   useEffect(()=> {
     setTimeout(()=>{
-      setViewSplash('false');
+      setViewSplash('false'); 
     }, 1500);
   }, []);
 
@@ -17,7 +17,7 @@ const App = () => {
   ) : (
     <Fragment>
       <MainContainer/> 
-      <Admob/>
+      {/* <Admob/> */}
     </Fragment>
   );
 }
