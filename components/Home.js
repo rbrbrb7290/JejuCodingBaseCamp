@@ -6,14 +6,14 @@ import YouTube from 'react-native-youtube';
 function BaseCampIntro() {
   return (
     <View style={style.itemBox}>
-      <Text style={style.title}>JejuCodingBaseCamp?</Text> 
-      <Image 
-        source={{uri:'http://paullab.co.kr/line.png'}}
-        style={{width:'100%' ,height:200}}
-      />
+<Text style={style.title}>JejuCodingBaseCamp!</Text> 
       <Image 
         source={require('./../images/camp_Intro.png')}
         style={{width:'100%' ,height:500}}
+      />
+      <Image 
+        source={require('./../images/camp_Intro2.png')}
+        style={{width:'100%' ,height:200}}
       />
       {/* <YouTube  
         apiKey={env.YOUTUBE_API_KEY}
@@ -26,10 +26,10 @@ function BaseCampIntro() {
 
 function PaulLabIntro() {
   return (
-  <View style={style.itemBox}>
+  <View style={style.itemBox}> 
       <Text style={style.title}>바울랩</Text>  
       <Image 
-        source={{uri:'http://paullab.co.kr/logo.png'}}
+        source={require('./../images/paullab.png')}
         style={{width:'100%' ,height:200}}
       />
   </View>
@@ -71,12 +71,20 @@ itemBox: {
     borderColor: '#e8e8e8', 
     marginTop: 10,
     marginLeft:5,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
+    alignItems:'center'
 },
 title:{
    fontSize: normalize(20),
    fontWeight: 'bold',
-   marginBottom: 15,
+   paddingVertical:45,
+   borderTopWidth:2,
+   borderBottomWidth:2,
+   borderColor: '#bcbcbc',
+   borderRadius:25,
+   marginTop:30
+
+ 
 },
 desc: {
   fontSize: normalize(15),

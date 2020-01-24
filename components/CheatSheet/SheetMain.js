@@ -22,6 +22,7 @@ const SheetMain = ({navigation})=>{
     useEffect(()=> {setSheet()},[])
     return (
         <View style={style.container}>
+             <Text style={style.title}>치트시트</Text>
             <FlatList
                 data = {DATA}
                 renderItem = {({item})=><_renderItem item={item}/>}
@@ -36,8 +37,9 @@ export default SheetMain
 const style = StyleSheet.create({
     container:{
         flex:1,
-        
+        backgroundColor:'#FFFFFF',
         alignItems: 'center',
+        alignContent:'center',
         justifyContent:'center'
     },
     content:{
@@ -51,12 +53,24 @@ const style = StyleSheet.create({
         borderRadius: 7,
         borderWidth: 0.3,
         borderColor: '#BCBCBC',
-        minWidth:'33%',
-        height:120
+        minWidth:'31%',
+        height:120,
+        marginVertical:4,
+        marginHorizontal:3,
+        elevation:5
     },
     sheetName:{
         textAlign:'center',
         fontWeight:'bold',
         fontSize: normalize(13)
-    }
+    },
+    title: {
+        paddingVertical: 10,
+        paddingHorizontal: 17,
+        fontWeight: 'bold' , 
+        color: '#6e6e6e',
+        marginTop: 10,
+        fontWeight:'bold',
+        fontSize: normalize(18)
+      },
 })

@@ -10,12 +10,12 @@ const deviceWidth = Dimensions.get('window').width;
 
 const LectureVideo = ({navigation}) => {
 
-  const webComponent=()=> (
-      <WebView 
-        source={{uri:'http://paullab.co.kr/index.html'}}
-        style={{...style.webview ,marginTop: 20,  }}
-      />
-  )
+  // const webComponent=()=> (
+  //     <WebView 
+  //       source={{uri:'http://paullab.co.kr/index.html'}}
+  //       style={{...style.webview ,marginTop: 20,  }}
+  //     />
+  // )
     return(
       <ScrollView style={style.container}>
         <YouTube 
@@ -24,7 +24,9 @@ const LectureVideo = ({navigation}) => {
           style={{ alignSelf: 'stretch', height: 270 }}
         />
         <Text style={style.title}>{navigation.getParam('title')}</Text>
-        <TouchableOpacity onPress= {()=> webComponent()}><Text style={style.admin}>제작: 바울랩 </Text></TouchableOpacity>
+        {/* <TouchableOpacity onPress= {()=> webComponent()}> */}
+          <Text style={style.admin}>제작: 바울랩 </Text>
+        {/* </TouchableOpacity> */}
         <Text style={style.body}>{navigation.getParam('desc')}</Text>
      </ScrollView>
     ); 

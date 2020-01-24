@@ -1,12 +1,13 @@
 import React from 'react'; 
-import {TouchableOpacity, Image,View} from 'react-native';
+import {TouchableOpacity, Image,View,Text} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Icon from 'react-native-vector-icons/Entypo';
 import LectureDrawerNavigator from './LectureDrawerNavigator';
 import License from './License'
+import { normalize } from 'react-native-elements';
 
-const icon = <Icon name="menu" size={32}/>
+const icon = <Icon name="menu" size={40}/>
 const infoIcon = <Icon name="info" size={20}/>
 const HomeStackNavigator = createStackNavigator({
     Home: {
@@ -16,30 +17,33 @@ const HomeStackNavigator = createStackNavigator({
             headerTitle: ()=> (
               <View>
                 <Image source={require('./../images/logo.png')}
-<<<<<<< HEAD
-                       style={{width:40 , height:40, marginLeft: -32}} />
-=======
                        style={{width:40 , height:40, marginLeft: -20}} /> 
->>>>>>> fc64f034e08c7549901c2809311907feb467860a
-              </View>
+               </View>
             ),
             headerLeft: () => (   
               <TouchableOpacity 
                   onPress={() => navigation.toggleDrawer()}
-                  style={{marginLeft:10}}
+                  style={{marginLeft:5}}
                   >
                 {icon}
               </TouchableOpacity> 
             ),
             headerRight:()=>(
-              <TouchableOpacity style={{marginRight:10}} onPress={()=> navigation.navigate('License')}>
-              <Icon name="info" size={20} style={{marginLeft:100}}/>
+              <TouchableOpacity style={{marginRight:-15,height:48, width:48, alignContent:'center',justifyContent:'center'}} onPress={()=> navigation.navigate('License')}>
+              <Icon name="info" size={20} style={{}}/>
               </TouchableOpacity>
             )
           })
     },
     License:{
-      screen: License
+      screen: License,
+      navigationOptions:{
+        headerTitle:()=>(
+          <View>
+            <Text style={{fontSize:normalize(17), marginLeft:-15,fontWeight:'bold'}}>오픈소스 라이센스 {'><'} </Text>
+          </View>
+        )
+      }
     }
 })
 
