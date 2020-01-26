@@ -17,7 +17,7 @@ const App = () => {
   ) : (
     <Fragment>
       <MainContainer/> 
-      <Admob/>
+      {/* <Admob/> */}
     </Fragment>
   );
 }

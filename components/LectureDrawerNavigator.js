@@ -4,8 +4,8 @@ import Home from './Home';
 import LectureStackNavigation from './StackNavigators/LectureStackNavigation';
 import * as env from '../env';
 import Icon from 'react-native-vector-icons/Entypo'
-import BookList from './BookComponent/BookList';
-import CheatSheet from './CheatSheet/CheatSheet';
+// import BookList from './BookComponent/BookList';
+// import CheatSheet from './CheatSheet/CheatSheet';
 
 const LectureDarwerNavigator = createDrawerNavigator({
   Home: {
@@ -38,17 +38,17 @@ const LectureDarwerNavigator = createDrawerNavigator({
       drawerLabel: "협업툴 Etc.",
     },
   },  
-  Book:{
-    screen: BookList,
-    navigationOptions:{
-      drawerLabel:"책 목록"
-    }
-  },
-  Sheet:{
-    screen: CheatSheet,
-    navigationOptions:{
-      drawerLabel:"치트시트"
-    }
-  }
+  // Book:{
+  //   screen: BookList,
+  //   navigationOptions:{
+  //     drawerLabel:"책 목록"
+  //   }
+  // },
+  // Sheet:{
+  //   screen: CheatSheet,
+  //   navigationOptions:{
+  //     drawerLabel:"치트시트"
+  //   }
+  // }
 }, )
 export default LectureDarwerNavigator;

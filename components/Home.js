@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Image, ScrollView} from "react-native";
 import { normalize } from 'react-native-elements';
 import YouTube from 'react-native-youtube';
 import * as env from './../env';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 function BaseCampIntro() {
   return (

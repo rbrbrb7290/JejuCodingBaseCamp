@@ -7,7 +7,6 @@ import LectureDrawerNavigator from './LectureDrawerNavigator';
 import License from './License'
 
 const icon = <Icon name="menu" size={32}/>
-const infoIcon = <Icon name="info" size={20}/>
 const HomeStackNavigator = createStackNavigator({
     Home: {
         screen: LectureDrawerNavigator,

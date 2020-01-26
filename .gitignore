@@ -2,6 +2,9 @@
 #
 .DS_Store
 google-services.json
+private_key.pepk
+upload_key.jks
+app.zip
 # Xcode
 #
 build/

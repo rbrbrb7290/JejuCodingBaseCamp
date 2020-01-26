@@ -9,10 +9,6 @@ let json ={
             "license": "MIT License",
             "agreement":`https://github.com/babel/babel/tree/master/packages/babel-runtime`
         },{
-            "name": "@react-native-community/masked-view",
-            "license": "MIT License",
-            "agreement":`https://github.com/react-native-community/react-native-masked-view`
-        },{
             "name":"@react-native-firebase/admob",
             "license":"Apache-2.0",
             "agreement":"https://github.com/invertase/react-native-firebase/tree/master/packages/admob"
@@ -49,10 +45,6 @@ let json ={
             "license":"MIT License",
             "agreement":"https://github.com/react-native-elements/react-native-elements"
         },{
-            "name":"react-native-gesture-handler",
-            "license":"MIT License",
-            "agreement":"https://github.com/software-mansion/react-native-gesture-handler"
-        },{
             "name":"react-native-image-zoom-viewer",
             "license":"MIT License",
             "agreement":"https://github.com/ascoders/react-native-image-viewer"
@@ -60,10 +52,6 @@ let json ={
             "name":"react-native-reanimated",
             "license":"MIT License",
             "agreement":"https://github.com/software-mansion/react-native-reanimated"
-        },{
-            "name":"react-native-safe-area-context",
-            "license":"MIT License",
-            "agreement":"https://github.com/th3rdwave/react-native-safe-area-context"
         },{
             "name":"react-native-vector-icons",
             "license":"MIT License",
