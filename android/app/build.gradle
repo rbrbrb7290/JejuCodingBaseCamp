@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-// apply plugin: "com.google.gms.google-services"
+apply plugin: "com.google.gms.google-services"
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
 import com.android.build.OutputFile
@@ -79,7 +79,7 @@ import com.android.build.OutputFile
 
 project.ext.react = [
     entryFile: "index.js",
-    enableHermes: false,  // clean and rebuild if changing
+    enableHermes: true,  // clean and rebuild if changing
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -133,9 +133,9 @@ android {
         applicationId "com.jejucodingbasecamp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
-        // multiDexEnabled true
+        versionCode 6
+        versionName "test"
+        multiDexEnabled true
     }
     splits {
         abi {
@@ -184,8 +184,9 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    // implementation "com.google.firebase:firebase-analytics:17.2.0"
+    implementation "com.google.firebase:firebase-analytics:17.2.0"
     // implementation "androidx.multidex:multidex:2.0.1"
+    implementation 'com.android.support:multidex:1.0.3'
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";

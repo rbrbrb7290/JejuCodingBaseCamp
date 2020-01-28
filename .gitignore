@@ -61,4 +61,13 @@ buck-out/
 # CocoaPods
 /ios/Pods/
 
-env.js
+env.js 
+
+/android/
+debug
+release
+private_key.pepk
+upload_key.jks
+debug.keystore
+
+/android/gradle.properties

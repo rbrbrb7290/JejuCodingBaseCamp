@@ -8,17 +8,14 @@ const App = () => {
   
   useEffect(()=> {
     setTimeout(()=>{
-      setViewSplash('false');
+      setViewSplash('false'); 
     }, 1500);
   }, []);
 
   return viewSplash === 'true' ? (
     <Splash />
   ) : (
-    <Fragment>
-      <MainContainer/> 
-      {/* <Admob/> */}
-    </Fragment>
+      <MainContainer/>
   );
 }
 export default App;

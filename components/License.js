@@ -22,7 +22,7 @@ const SheetMain = ({navigation})=>{
 
     
     return (
-        <View>
+        <View style={{backgroundColor:'white', paddingHorizontal:15}}>
             <FlatList
                 data = {DATA}
                 renderItem = {({item})=><_renderItem item={item}/>}
@@ -43,9 +43,11 @@ const style = StyleSheet.create({
         paddingVertical: 5,
         paddingHorizontal: 10,
         borderRadius: 7,
-        borderWidth: 0.3,
+        borderWidth: 1,
         height:normalize(100),
-        borderColor: '#BCBCBC'
+        borderColor: '#e8e8e8',
+        marginBottom: 15,
+        elevation:5
     },
     sheetName:{
         textAlign:'center',
