@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { 
    View, Text, FlatList
-  ,ActivityIndicator, Image, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView
+  ,ActivityIndicator, Image, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView,
 } from "react-native";
 import { getPlayList } from '../../service/DataProcessor';
 import { normalize } from 'react-native-elements';
@@ -20,11 +20,11 @@ const LectureList = ({navigation, screenProps }) => {
         return(
             <View style={style.buttonWrap}> 
             <TouchableOpacity  style={style.button}
-                onPress={()=> setPageToken(`pageToken=${prevPageToken}`)}>
-                 <Text>이전</Text>
+                onPress={()=> !prevPageToken ? {}: setPageToken(`pageToken=${prevPageToken}`)}>
+                  <Text>이전</Text>
             </TouchableOpacity>
             <TouchableOpacity style={style.button}
-                onPress={()=> setPageToken(`pageToken=${nextPageToken}`)}>
+                onPress={()=> !nextPageToken ? {}: setPageToken(`pageToken=${nextPageToken}`)}>
                   <Text>다음</Text>
             </TouchableOpacity>
             </View>
@@ -66,6 +66,7 @@ const LectureList = ({navigation, screenProps }) => {
               renderItem={renderVideo}
               keyExtractor={item => item.videoId}
               ListHeaderComponent={renderHeader}
+              style={{height:'85%'}}
             />   
             <PushPageToken />
         </SafeAreaView>
@@ -77,10 +78,10 @@ const style = StyleSheet.create({
         flex:1,
         paddingTop: 2,
         alignItems: 'flex-start',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     itemBox: {
-        flex:1,
+        flex:2,
         minWidth: '98%',
         backgroundColor: '#FFFFFF',
         paddingVertical: 3,
@@ -102,19 +103,14 @@ const style = StyleSheet.create({
         color: '#8a8a8a',
         fontSize: normalize(10)
       },
-    desc: {
-       fontSize: normalize(10),
-       color:'#8a8a8a'
-    },
     buttonWrap: {
-        flex:1,
+        flex:6,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignItems: 'center',
         justifyContent:'space-around',
-        marginVertical:10,
-        paddingBottom: 33
+        marginVertical:5,
         // justifyContent: 'space-between'
     },
     button: {
