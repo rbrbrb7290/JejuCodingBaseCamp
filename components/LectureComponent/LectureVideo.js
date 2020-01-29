@@ -4,8 +4,8 @@ import YouTube from 'react-native-youtube';
 import { normalize } from 'react-native-elements'
 import * as env from '../../env';
  
-const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
+// const deviceHeight = Dimensions.get('window').height;
+// const deviceWidth = Dimensions.get('window').width;
 
 const LectureVideo = ({navigation}) => {
     return(
@@ -50,15 +50,15 @@ const style = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: normalize(14)
   },
-  webview: { 
-    flex: 1,
-    backgroundColor: '#fff', 
-    alignItems: 'stretch', 
-    justifyContent: 'center', 
-    width: deviceWidth,
-    height: deviceHeight
+  // webview: { 
+  //   flex: 1,
+  //   backgroundColor: '#fff', 
+  //   alignItems: 'stretch', 
+  //   justifyContent: 'center', 
+  //   width: deviceWidth,
+  //   height: deviceHeight
  
-  },
+  // },
 })
 
 export default LectureVideo;

@@ -1,25 +1,19 @@
-import React, { Fragment, useEffect } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView} from "react-native";
 import { normalize } from 'react-native-elements';
-import YouTube from 'react-native-youtube';
 
 function BaseCampIntro() {
   return (
     <View style={style.itemBox}>
-<Text style={style.title}>JejuCodingBaseCamp!</Text> 
+      <Text style={style.title}>JejuCodingBaseCamp</Text> 
       <Image 
         source={require('./../images/camp_Intro.png')}
-        style={{width:'100%' ,height:500}}
+        style={{ width: '100%',height:500, resizeMode:'center', marginTop: 20}} 
       />
       <Image 
-        source={require('./../images/camp_Intro2.png')}
-        style={{width:'100%' ,height:200}}
+        source={{uri:'http://paullab.co.kr/line.png'}}
+        style={{ width:'100%',height:200,resizeMode:'center'}} 
       />
-      {/* <YouTube  
-        apiKey={env.YOUTUBE_API_KEY}
-        videoId={'Ha5W6vqTEDI'}
-        style={{ alignSelf: 'stretch', height: 270, marginTop: 15}}
-      /> */}
     </View> 
   )
 }
@@ -29,26 +23,27 @@ function PaulLabIntro() {
   <View style={style.itemBox}> 
       <Text style={style.title}>바울랩</Text>  
       <Image 
-        source={require('./../images/paullab.png')}
-        style={{width:'100%' ,height:200}}
+        source={{uri:'http://paullab.co.kr/logo.png'}}
+        style={{width:'100%',height:200,resizeMode:'contain'}}
       />
   </View>
   )
+  
 }
  
-function OtherInfo() {
-  return (
-    <View style={{...style.itemBox, alignItems:'center'}}>
-    </View>
-  )
-}
+// function OtherInfo() {
+//   return (
+//     <View style={{...style.itemBox, alignItems:'center'}}>
+//     </View>
+//   )
+// }
 
-const Home = ({navigation}) => {
+const Home = () => {
     return(
       <ScrollView style={style.container}>
         <BaseCampIntro />
         <PaulLabIntro />
-        <OtherInfo />
+        {/* <OtherInfo /> */}
       </ScrollView>
     ); 
 } 
@@ -61,15 +56,14 @@ const style = StyleSheet.create({
 },
 itemBox: {
     flex:1,
-    minWidth: '98%',
     backgroundColor: '#FFFFFF',
     paddingTop: 15,
     paddingBottom: 30,
     paddingHorizontal: 8,
     borderRadius: 4,
-    borderWidth: 1,
+    borderWidth: 0.4,
     borderColor: '#e8e8e8', 
-    marginTop: 10,
+    marginTop: 15,
     marginLeft:5,
     resizeMode: 'contain',
     alignItems:'center'
@@ -77,7 +71,7 @@ itemBox: {
 title:{
    fontSize: normalize(20),
    fontWeight: 'bold',
-   paddingVertical:45,
+   paddingVertical:40,
    borderTopWidth:2,
    borderBottomWidth:2,
    borderColor: '#bcbcbc',
