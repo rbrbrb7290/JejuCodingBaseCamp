@@ -3,7 +3,6 @@ import { createDrawerNavigator,} from 'react-navigation-drawer';
 import Home from './Home';
 import LectureStackNavigation from './StackNavigators/LectureStackNavigation';
 import * as env from '../env';
-import Icon from 'react-native-vector-icons/Entypo'
 import BookList from './BookComponent/BookList';
 import CheatSheet from './CheatSheet/CheatSheet';
 
@@ -50,5 +49,11 @@ const LectureDarwerNavigator = createDrawerNavigator({
       drawerLabel:"치트시트"
     }
   }
-}, )
+}, {
+  contentOptions: {
+    activeTintColor: '#55a79a',
+
+  }
+
+} )
 export default LectureDarwerNavigator;

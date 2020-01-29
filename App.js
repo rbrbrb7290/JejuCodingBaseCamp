@@ -1,7 +1,7 @@
 import React, { Fragment,useState, useEffect } from 'react';
 import Splash from './components/Splash';
 import MainContainer from './components/MainContainer';
-import Admob from './components/Admob';
+import AdMob from './components/Admob';
 
 const App = () => {
   const [ viewSplash, setViewSplash ] = useState('true');
@@ -16,9 +16,9 @@ const App = () => {
     <Splash />
   ) : (
     <Fragment>
-      <MainContainer/> 
-      {/* <Admob/> */}
+      <MainContainer />
+      <AdMob />
     </Fragment>
-  );
+    );
 }
 export default App;

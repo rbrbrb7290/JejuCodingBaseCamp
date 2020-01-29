@@ -1,8 +1,12 @@
+/** 
+ * *
+ * 티스토리 포스팅용 코드 
+ * */
+
 import React, {useState, useEffect} from 'react';
 import { View, Text, ScrollView, FlatList, Button , StyleSheet,TouchableOpacity } from 'react-native';
 
-/** 
- * HTML / CSS / JS강의 로드 컴포넌트  */
+
 const WebBasicLectures =({navigation}) => {
     const [ param , setParam ]  = useState('HTML');
 

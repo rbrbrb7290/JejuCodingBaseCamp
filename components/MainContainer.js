@@ -23,14 +23,15 @@ const HomeStackNavigator = createStackNavigator({
             headerLeft: () => (   
               <TouchableOpacity 
                   onPress={() => navigation.toggleDrawer()}
-                  style={{marginLeft:5}}
-                  >
-                {icon}
+                  style={{marginLeft:5}}>
+                    {icon}
               </TouchableOpacity> 
             ),
             headerRight:()=>(
-              <TouchableOpacity style={{marginRight:-15,height:48, width:48, alignContent:'center',justifyContent:'center'}} onPress={()=> navigation.navigate('License')}>
-              <Icon name="info" size={20} style={{}}/>
+              <TouchableOpacity 
+                  style={{marginRight:-15,height:48, width:48, alignContent:'center',justifyContent:'center'}} 
+                  onPress={()=> navigation.navigate('License')}>
+                    {infoIcon}
               </TouchableOpacity>
             )
           })
