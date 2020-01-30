@@ -5,6 +5,8 @@ import {
 } from "react-native";
 import { getPlayList } from '../../service/DataProcessor';
 import { normalize } from 'react-native-elements';
+import Admob from '../Admob';
+
 
 const LectureList = ({navigation, screenProps }) => {
     const [playList, setPlayList] = useState(null);
@@ -18,6 +20,7 @@ const LectureList = ({navigation, screenProps }) => {
     const PushPageToken = () => {
         const { pageToken: { nextPageToken , prevPageToken}} = playList;
         return(
+
             <View style={style.buttonWrap}> 
             <TouchableOpacity  style={style.button}
                 onPress={()=> !prevPageToken ? {}: setPageToken(`pageToken=${prevPageToken}`)}>
@@ -60,16 +63,22 @@ const LectureList = ({navigation, screenProps }) => {
             <ActivityIndicator size='large' />
         </View> 
     ) : (
-        <SafeAreaView style={{flex:1,backgroundColor: '#FFFFFF',}}>
-            <FlatList
-              data={playList.videoInfo}
-              renderItem={renderVideo}
-              keyExtractor={item => item.videoId}
-              ListHeaderComponent={renderHeader}
-              style={{height:'85%'}}
-            />   
-            <PushPageToken />
-        </SafeAreaView>
+        <View style={{flex:1, backgroundColor:'#FFFFFF'}}>
+
+            <SafeAreaView style={{flex:10}}>
+                <FlatList
+                data={playList.videoInfo}
+                renderItem={renderVideo}
+                keyExtractor={item => item.videoId}
+                ListHeaderComponent={renderHeader}
+                style={{flex:8}}
+                />   
+            </SafeAreaView>
+            <View style={{flex:1}}>
+                <PushPageToken/>
+            </View>
+            <Admob/>
+        </View>
     );
 } 
 
@@ -104,7 +113,7 @@ const style = StyleSheet.create({
         fontSize: normalize(10)
       },
     buttonWrap: {
-        flex:6,
+        flex:1,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',

@@ -3,7 +3,7 @@ import { View, ScrollView, Text, StyleSheet, TouchableOpacity, Dimensions } from
 import YouTube from 'react-native-youtube';
 import { normalize } from 'react-native-elements'
 import * as env from '../../env';
- 
+import AdMob from '../Admob'
 // const deviceHeight = Dimensions.get('window').height;
 // const deviceWidth = Dimensions.get('window').width;
 
