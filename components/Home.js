@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView} from "react-native";
 import { normalize } from 'react-native-elements';
+import AdMob from '../components/Admob';
 
 function BaseCampIntro() {
   return (
@@ -10,6 +11,7 @@ function BaseCampIntro() {
         source={require('./../images/camp_Intro.png')}
         style={{ width: '100%',height:500, resizeMode:'center', marginTop: 20}} 
       />
+        <AdMob/>
       <Image 
         source={{uri:'http://paullab.co.kr/line.png'}}
         style={{ width:'100%',height:200,resizeMode:'center'}} 
@@ -76,9 +78,8 @@ title:{
    borderBottomWidth:2,
    borderColor: '#bcbcbc',
    borderRadius:25,
-   marginTop:30
-
- 
+   marginTop:30,
+   marginBottom:-30,
 },
 desc: {
   fontSize: normalize(15),

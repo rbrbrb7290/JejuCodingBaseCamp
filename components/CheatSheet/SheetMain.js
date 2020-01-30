@@ -3,7 +3,8 @@ import {useState, useEffect} from 'react';
 import { View, Text, FlatList, Modal, StyleSheet,TouchableOpacity, Button, Dimensions} from 'react-native'
 import data from '../tool/data';
 import { normalize } from 'react-native-elements';
-
+import Admob from '../Admob';
+import { ScrollView } from 'react-native-gesture-handler';
 const SheetMain = ({navigation})=>{
     
     const _renderItem = ({item:{imglink, name}}) =>(
@@ -21,13 +22,25 @@ const SheetMain = ({navigation})=>{
     const DATA = Object.values(SheetList)
     useEffect(()=> {setSheet()},[])
     return (
-        <View style={style.container}>
+        <View  style={style.container}>
              <Text style={style.title}>치트시트</Text>
-            <FlatList
-                data = {DATA}
-                renderItem = {({item})=><_renderItem item={item}/>}
-                numColumns={3}
-            />
+            <ScrollView style={{height:'65%'}}>
+                <FlatList
+                    data = {DATA}
+                    renderItem = {({item})=><_renderItem item={item}/>}
+                    numColumns={3}
+                    style={{marginBottom:50}}
+                    />
+                     <FlatList
+                    data = {DATA}
+                    renderItem = {({item})=><_renderItem item={item}/>}
+                    numColumns={3}
+                    style={{marginBottom:50}}
+                    />
+            </ScrollView>
+            <View style={{flex:1}}>
+                <Admob/>
+            </View>
         </View>
     )
 }
@@ -37,10 +50,11 @@ export default SheetMain
 const style = StyleSheet.create({
     container:{
         flex:1,
+        display:'flex',
         backgroundColor:'#FFFFFF',
         alignItems: 'center',
         alignContent:'center',
-        justifyContent:'center'
+        justifyContent:'center',
     },
     content:{
         flex: 1,
