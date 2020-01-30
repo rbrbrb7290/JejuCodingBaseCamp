@@ -133,10 +133,10 @@ android {
         applicationId "com.jejucodingbasecamp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 12
+        versionCode 14
 //        <major>.<minor>.<point>
 //        <major> - "UI , 기능상 큰 변경 시" / <minor> - "하나의 새로운기능,중요 컨텐츠 변경"  / <point> - "버그 수정 등 간단한 업데이트"
-        versionName "test"
+        versionName "1.0.1"
         multiDexEnabled true
     }
     splits {
