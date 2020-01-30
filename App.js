@@ -1,7 +1,6 @@
 import React, { Fragment,useState, useEffect } from 'react';
 import Splash from './components/Splash';
 import MainContainer from './components/MainContainer';
-import AdMob from './components/Admob';
 
 const App = () => {
   const [ viewSplash, setViewSplash ] = useState('true');
@@ -15,10 +14,7 @@ const App = () => {
   return viewSplash === 'true' ? (
     <Splash />
   ) : (
-    <Fragment>
       <MainContainer />
-      <AdMob />
-    </Fragment>
     );
 }
 export default App;
