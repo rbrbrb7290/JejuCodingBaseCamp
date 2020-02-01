@@ -40,13 +40,13 @@ const style = StyleSheet.create({
         alignItems: 'center',
         justifyContent:'space-around',
         backgroundColor: '#FFFFFF',
+        marginVertical: 10,
         paddingVertical: 5,
         paddingHorizontal: 10,
         borderRadius: 7,
         borderWidth: 1,
         height:normalize(100),
         borderColor: '#e8e8e8',
-        marginBottom: 15,
         elevation:5
     },
     sheetName:{

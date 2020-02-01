@@ -53,7 +53,9 @@ const LectureDarwerNavigator = createDrawerNavigator({
   contentOptions: {
     activeTintColor: '#55a79a',
 
-  }
+  },
+  unmountInactiveRoutes: false,
+ 
 
 } )
 export default LectureDarwerNavigator;

@@ -64,7 +64,6 @@ const LectureList = ({navigation, screenProps }) => {
         </View> 
     ) : (
         <View style={{flex:1, backgroundColor:'#FFFFFF'}}>
-
             <SafeAreaView style={{flex:10}}>
                 <FlatList
                 data={playList.videoInfo}
