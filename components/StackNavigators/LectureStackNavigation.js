@@ -5,7 +5,7 @@ import LectureVideo from '../LectureComponent/LectureVideo';
 
 const LectureStackNavigation = createStackNavigator({
     // 강좌 개요
-    LectureList:{
+    LectureList: {
         screen: LectureList,
     },
 
@@ -18,5 +18,5 @@ const LectureStackNavigation = createStackNavigator({
     
   } 
 );
-export default createAppContainer(LectureStackNavigation);
+export default LectureStackNavigation;
 

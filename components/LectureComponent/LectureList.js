@@ -1,26 +1,27 @@
 import React, {useState, useEffect} from 'react';
 import { 
    View, Text, FlatList
-  ,ActivityIndicator, Image, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView,
+  ,ActivityIndicator, Image, StyleSheet, TouchableOpacity
+  ,TouchableHighlight, ScrollView, SafeAreaView,
 } from "react-native";
 import { getPlayList } from '../../service/DataProcessor';
 import { normalize } from 'react-native-elements';
 import Admob from '../Admob';
 
 
-const LectureList = ({navigation, screenProps }) => {
+const LectureList = ({navigation, plId , lecture}) => {
     const [playList, setPlayList] = useState(null);
     const [pageToken , setPageToken] = useState(null);
+    console.log();
 
     const _getPlayList = async () => {
-        setPlayList(await getPlayList(screenProps.plId, pageToken));
+        setPlayList(await getPlayList(plId, pageToken));
     }
     useEffect(()=> {_getPlayList()}, [pageToken]); 
 
-    const PushPageToken = () => {
+    const PrevNextButton = () => {
         const { pageToken: { nextPageToken , prevPageToken}} = playList;
         return(
-
             <View style={style.buttonWrap}> 
             <TouchableOpacity  style={style.button}
                 onPress={()=> !prevPageToken ? {}: setPageToken(`pageToken=${prevPageToken}`)}>
@@ -35,11 +36,12 @@ const LectureList = ({navigation, screenProps }) => {
     }
     
     const renderVideo = ({item: {title, img , desc, date, videoId}}) => (
-        <TouchableOpacity 
+        <TouchableHighlight 
             onPress={()=> navigation.navigate('LectureVideo', {
                 videoId: videoId,
                 title: title,
-                desc: desc,     })}>
+                desc: desc,     })}
+            underlayColor="white"  >
         <View style={style.container}>
             <View style={style.itemBox}>
                 <Image source={{uri:`${img}`}} style={{width:'auto', height:200}} />
@@ -49,12 +51,12 @@ const LectureList = ({navigation, screenProps }) => {
               <Text numberOfLines={1} style={style.date}>{date}</Text>
             </View>
         </View>
-        </TouchableOpacity>
+        </TouchableHighlight>
     )
 
     const renderHeader = () => (
         <View style={style.header}>
-            <Text style={{fontSize: normalize(16), fontWeight: 'bold' , color: '#6e6e6e'}}>{screenProps.title} 강좌</Text>
+            <Text style={{fontSize: normalize(16), fontWeight: 'bold' , color: '#6e6e6e'}}>{lecture} 강좌</Text>
         </View>
     )
     
@@ -74,7 +76,7 @@ const LectureList = ({navigation, screenProps }) => {
                 />   
             </SafeAreaView>
             <View style={{flex:1}}>
-                <PushPageToken/>
+                <PrevNextButton />
             </View>
             <Admob/>
         </View>

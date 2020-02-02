@@ -1,11 +1,13 @@
 import React from 'react'; 
-import {TouchableOpacity, Image,View,Text} from 'react-native';
+import { TouchableHighlight, Image, View, Text} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Icon from 'react-native-vector-icons/Entypo';
 import LectureDrawerNavigator from './LectureDrawerNavigator';
 import License from './License'
 import { normalize } from 'react-native-elements';
+import LectureList from './LectureComponent/LectureList';
+import LectureVideo from './LectureComponent/LectureVideo';
 
 const icon = <Icon name="menu" size={40}/>
 const infoIcon = <Icon name="info" size={20}/>
@@ -21,20 +23,20 @@ const HomeStackNavigator = createStackNavigator({
                </View>
             ),
             headerLeft: () => (   
-              <TouchableOpacity 
-                  onPress={() => navigation.toggleDrawer()}
+              <TouchableHighlight 
+                  onPress={() => navigation.toggleDrawer()} underlayColor="white"
                   style={{marginLeft:5}}>
                     {icon}
-              </TouchableOpacity> 
+              </TouchableHighlight> 
             ),
             headerRight:()=>(
-              <TouchableOpacity 
+              <TouchableHighlight 
                   style={{marginRight:-15,height:48, width:48, alignContent:'center',justifyContent:'center'}} 
-                  onPress={()=> navigation.navigate('License')}>
+                  onPress={()=> navigation.navigate('License')} underlayColor="white">
                     {infoIcon}
-              </TouchableOpacity>
+              </TouchableHighlight >
             )
-          })
+        })
     },
     License:{
       screen: License,
@@ -45,9 +47,13 @@ const HomeStackNavigator = createStackNavigator({
           </View>
         )
       }
+    },
+    LectureVideo: {
+      screen:LectureVideo,
+      navigationOptions: {
+        title: ""
+      }
     }
-},{
-}
-)
+})
 
 export default createAppContainer(HomeStackNavigator);

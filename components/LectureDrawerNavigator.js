@@ -1,7 +1,8 @@
 import React from 'react';
 import { createDrawerNavigator,} from 'react-navigation-drawer';
 import Home from './Home';
-import LectureStackNavigation from './StackNavigators/LectureStackNavigation';
+// import LectureStackNavigation from './StackNavigators/LectureStackNavigation';
+import LectureList from './LectureComponent/LectureList';
 import * as env from '../env';
 import BookList from './BookComponent/BookList';
 import CheatSheet from './CheatSheet/CheatSheet';
@@ -14,28 +15,49 @@ const LectureDarwerNavigator = createDrawerNavigator({
     }
   },
   HTML: { 
-    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_HTML , title: 'HTML' }} /> ,
-  }, 
+    screen: (props) => 
+      <LectureList 
+        navigation={props.navigation} 
+        plId ={env.PL_HTML} lecture='HTML' /> ,
+  },
   CSS: {
-    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_CSS ,title: 'CSS' }} /> ,
+    screen: (props) => 
+      <LectureList 
+        navigation={props.navigation} 
+        plId ={env.PL_CSS} lecture='CSS' /> 
   }, 
   JavaScript: {
-    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_JS , title: 'JS'}} /> ,
+    screen: (props) => 
+      <LectureList 
+        navigation={props.navigation} 
+        plId ={env.PL_JS} lecture='JS' /> ,
   },
   Python: {
-    screen: (props) => <LectureStackNavigation screenProps={{plId:env.PL_PYTHON ,title: 'Python'}} /> ,
+    screen: (props) => 
+      <LectureList 
+        navigation={props.navigation} 
+        plId ={env.PL_PYTHON} lecture='Python' /> ,
   },
   Django: {
-    screen: (props) =>  <LectureStackNavigation screenProps={{plId:env.PL_DJANGO , title: 'Django'}} /> ,
+    screen: (props) =>  
+      <LectureList 
+        navigation={props.navigation} 
+        plId ={env.PL_DJANGO} lecture='Django' /> ,
   },
   DataAnalysis: {
-    screen: (props) =>  <LectureStackNavigation screenProps={{plId:env.PL_DATA_ANALYSIS, title:'데이터 분석'}} /> ,
+    screen: (props) =>  
+      <LectureList 
+        navigation={props.navigation} 
+        plId ={env.PL_DATA_ANALYSIS} lecture='데이터 분석' /> ,
   },
   Etc: {
-    screen: (props) =>  <LectureStackNavigation screenProps={{plId:env.PL_ETC , title:'기타'}} /> ,
-    navigationOptions: {
-      drawerLabel: "협업툴 Etc.",
-    },
+    screen: (props) => 
+      <LectureList 
+        navigation={props.navigation} 
+        plId ={env.PL_ETC} lecture='기타' />,
+      navigationOptions: {
+        drawerLabel: "협업툴 Etc.",
+      },
   },  
   Book:{
     screen: BookList,
@@ -55,7 +77,5 @@ const LectureDarwerNavigator = createDrawerNavigator({
 
   },
   unmountInactiveRoutes: false,
- 
-
 } )
 export default LectureDarwerNavigator;
