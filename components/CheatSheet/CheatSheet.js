@@ -18,4 +18,4 @@ const MainStack = createStackNavigator(
 )
 
 
-export default createAppContainer(MainStack);
+export default MainStack;

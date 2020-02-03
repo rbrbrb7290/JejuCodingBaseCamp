@@ -1,21 +1,22 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
-import { View, Text, FlatList, Modal, StyleSheet,TouchableOpacity, Button, Dimensions} from 'react-native'
+import { View, Text, FlatList, StyleSheet, TouchableHighlight, ScrollView } from 'react-native'
 import data from '../tool/data';
 import { normalize } from 'react-native-elements';
 import Admob from '../Admob';
-import { ScrollView } from 'react-native-gesture-handler';
+
 const SheetMain = ({navigation})=>{
     
     const _renderItem = ({item:{imglink, name}}) =>(
-        <TouchableOpacity
-        onPress={()=> navigation.navigate('Sheet',{name:name, imglink:imglink})}>
+        <TouchableHighlight
+        onPress={()=> navigation.navigate('Sheet',{name:name, imglink:imglink})}
+        underlayColor="white"> 
             <View style={style.content}>
                 <Text style={style.sheetName}>
                     {name}
                 </Text>
             </View>
-        </TouchableOpacity>
+        </TouchableHighlight>
     )
     const [SheetList, setSheetList] = useState("")
     const setSheet = async () => {setSheetList(await data("sheet"))}
