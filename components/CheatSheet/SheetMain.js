@@ -31,12 +31,6 @@ const SheetMain = ({navigation})=>{
                     numColumns={3}
                     style={{marginBottom:50}}
                     />
-                     <FlatList
-                    data = {DATA}
-                    renderItem = {({item})=><_renderItem item={item}/>}
-                    numColumns={3}
-                    style={{marginBottom:50}}
-                    />
             </ScrollView>
             <View style={{flex:1}}>
                 <Admob/>
