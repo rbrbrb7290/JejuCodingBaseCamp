@@ -8,11 +8,9 @@ import { getPlayList } from '../../service/DataProcessor';
 import { normalize } from 'react-native-elements';
 import Admob from '../Admob';
 
-
 const LectureList = ({navigation, plId , lecture}) => {
     const [playList, setPlayList] = useState(null);
     const [pageToken , setPageToken] = useState(null);
-    console.log();
 
     const _getPlayList = async () => {
         setPlayList(await getPlayList(plId, pageToken));
@@ -34,7 +32,7 @@ const LectureList = ({navigation, plId , lecture}) => {
             </View>
         )
     }
-    
+
     const renderVideo = ({item: {title, img , desc, date, videoId}}) => (
         <TouchableHighlight 
             onPress={()=> navigation.navigate('LectureVideo', {

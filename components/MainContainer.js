@@ -1,5 +1,5 @@
 import React from 'react'; 
-import { TouchableHighlight, Image, View, Text} from 'react-native';
+import { TouchableOpacity, Image, View, Text} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Icon from 'react-native-vector-icons/Entypo';
@@ -23,18 +23,18 @@ const HomeStackNavigator = createStackNavigator({
                </View>
             ),
             headerLeft: () => (   
-              <TouchableHighlight 
-                  onPress={() => navigation.toggleDrawer()} underlayColor="white"
+              <TouchableOpacity
+                  onPress={() => navigation.toggleDrawer()} 
                   style={{marginLeft:5}}>
                     {icon}
-              </TouchableHighlight> 
+              </TouchableOpacity> 
             ),
             headerRight:()=>(
-              <TouchableHighlight 
+              <TouchableOpacity
                   style={{marginRight:-15,height:48, width:48, alignContent:'center',justifyContent:'center'}} 
-                  onPress={()=> navigation.navigate('License')} underlayColor="white">
+                  onPress={()=> navigation.navigate('License')}>
                     {infoIcon}
-              </TouchableHighlight >
+              </TouchableOpacity>
             )
         })
     },
@@ -48,6 +48,9 @@ const HomeStackNavigator = createStackNavigator({
         )
       }
     },
+    // LectureList:{
+    //   screen: LectureList
+    // },
     LectureVideo: {
       screen:LectureVideo,
       navigationOptions: {
