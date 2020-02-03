@@ -1,11 +1,10 @@
-import { createAppContainer,} from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import LectureList from '../LectureComponent/LectureList';
 import LectureVideo from '../LectureComponent/LectureVideo';
 
 const LectureStackNavigation = createStackNavigator({
     // 강좌 개요
-    LectureList:{
+    LectureList: {
         screen: LectureList,
     },
 
@@ -18,5 +17,5 @@ const LectureStackNavigation = createStackNavigator({
     
   } 
 );
-export default createAppContainer(LectureStackNavigation);
+export default LectureStackNavigation;
 
