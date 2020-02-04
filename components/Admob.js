@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import { Platform , View, StyleSheet} from 'react-native';
 import { BannerAd, BannerAdSize, TestIds } from '@react-native-firebase/admob';
 import * as env from '../env';
 import { SafeAreaView } from 'react-navigation';
@@ -7,9 +7,13 @@ import { SafeAreaView } from 'react-navigation';
 function Admob() {
   return (
     <SafeAreaView style={style.container}>
-    <BannerAd 
-      unitId={TestIds.BANNER}
-      // unitId={env.AD_BANNER_ID}
+    <BannerAd {
+      ...( Platform.OS ==='android' ? {
+        unitId: env.AD_BANNER_ID
+      }: {
+        unitId: TestIds.BANNER
+      })
+    }
       size={BannerAdSize.BANNER}
       requestOptions={{
         requestNonPersonalizedAdsOnly: true,
