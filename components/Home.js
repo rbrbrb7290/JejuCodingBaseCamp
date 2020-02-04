@@ -11,7 +11,6 @@ function BaseCampIntro() {
         source={require('./../images/camp_Intro.png')}
         style={{ width: '100%',height:500, resizeMode:'center', marginTop: 20}} 
       />
-        <AdMob/>
       <Image 
         source={{uri:'http://paullab.co.kr/line.png'}}
         style={{ width:'100%',height:200,resizeMode:'center'}} 
