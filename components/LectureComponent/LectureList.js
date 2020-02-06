@@ -11,26 +11,35 @@ import Admob from '../Admob';
 const LectureList = ({navigation, plId , lecture}) => {
     const [playList, setPlayList] = useState(null);
     const [pageToken , setPageToken] = useState(null);
+    const [prevDisabled, setPrevDisabled] = useState(1);
+    const [nextDisabled, setNextDisabled] = useState(1);
 
     const _getPlayList = async () => {
         setPlayList(await getPlayList(plId, pageToken));
     }
     useEffect(()=> {_getPlayList()}, [pageToken]); 
 
+    const _setBtnState = (prevPageToken, nextPageToken) =>{
+        !prevPageToken ? setPrevDisabled(0) : setPrevDisabled(1)
+        !nextPageToken ? setNextDisabled(0) : setNextDisabled(1)
+    }
+
     const PrevNextButton = () => {
         const { pageToken: { nextPageToken , prevPageToken}} = playList;
+        console.log(pageToken)
+        useEffect(() => { _setBtnState(prevPageToken, nextPageToken) }, [pageToken])
         return(
             <View style={style.buttonWrap}> 
-            <TouchableOpacity  style={style.button}
-                onPress={()=> !prevPageToken ? {}: setPageToken(`pageToken=${prevPageToken}`)}>
-                  <Text>이전</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={style.button}
-                onPress={()=> !nextPageToken ? {}: setPageToken(`pageToken=${nextPageToken}`)}>
-                  <Text>다음</Text>
-            </TouchableOpacity>
+                <TouchableOpacity  style={{...style.button, opacity:prevDisabled }} 
+                    onPress={()=> !prevPageToken ? {} :setPageToken(`pageToken=${prevPageToken}`)  }>
+                    <Text>이전</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{...style.button, opacity:nextDisabled }}
+                    onPress={()=> !nextPageToken ? {} : setPageToken(`pageToken=${nextPageToken}`)}>
+                    <Text>다음</Text>
+                </TouchableOpacity>
             </View>
-        )
+        );
     }
 
     const renderVideo = ({item: {title, img , desc, date, videoId}}) => (

@@ -7,13 +7,15 @@ import { SafeAreaView } from 'react-navigation';
 function Admob() {
   return (
     <SafeAreaView style={style.container}>
-    <BannerAd {
-      ...( Platform.OS ==='android' ? {
-        unitId: env.AD_BANNER_ID
-      }: {
-        unitId: TestIds.BANNER
-      })
-    }
+    <BannerAd 
+    // {
+    //   ...( Platform.OS ==='android' ? {
+    //     unitId: env.AD_BANNER_ID
+    //   }: {
+    //     unitId: TestIds.BANNER
+    //   })
+    // }
+      unitId={TestIds.BANNER}
       size={BannerAdSize.BANNER}
       requestOptions={{
         requestNonPersonalizedAdsOnly: true,
