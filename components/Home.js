@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView} from "react-native";
 import { normalize } from 'react-native-elements';
-import AdMob from '../components/Admob';
 
 function BaseCampIntro() {
   return (
